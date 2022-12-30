@@ -14,5 +14,6 @@ func main() {
 	e.GET("/users", controller.GetUsers)
 	e.GET("/users/:id", controller.GetUser)
 	e.POST("/users", controller.CreateUser)
+	e.PUT("/users/:id", controller.UpdateUser)
 	e.Logger.Fatal(e.Start(":8080"))
 }

@@ -30,3 +30,12 @@ func GetUser(c echo.Context) error {
 	model.DB.Take(&user)
 	return c.JSON(http.StatusOK, user)
 }
+
+func UpdateUser(c echo.Context) error {
+	user := model.User{}
+	if err := c.Bind(&user); err != nil {
+		return err
+	}
+	model.DB.Save(&user)
+	return c.JSON(http.StatusOK, user)
+}
