@@ -39,3 +39,12 @@ func UpdateUser(c echo.Context) error {
 	model.DB.Save(&user)
 	return c.JSON(http.StatusOK, user)
 }
+
+func DeleteUser(c echo.Context) error {
+	user := model.User{}
+	if err := c.Bind(&user); err != nil {
+		return err
+	}
+	model.DB.Delete(&user)
+	return c.JSON(http.StatusOK, user)
+}
